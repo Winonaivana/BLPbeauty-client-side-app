@@ -1,9 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-type Props = {};
-
-const Register: React.FC = (props: Props) => {
+const Register: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();

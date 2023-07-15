@@ -1,9 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-type Props = {};
-
-const Login: React.FC = (props: Props) => {
+const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

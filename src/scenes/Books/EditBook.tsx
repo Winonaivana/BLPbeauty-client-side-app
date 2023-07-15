@@ -2,9 +2,7 @@ import axios from "axios";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-type Props = {};
-
-const AddBook = (props: Props) => {
+const AddBook = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState("");

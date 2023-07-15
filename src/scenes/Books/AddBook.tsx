@@ -1,10 +1,8 @@
 import axios from "axios";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-type Props = {};
-
-const AddBook = (props: Props) => {
+const AddBook = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState("");
