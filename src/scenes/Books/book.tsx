@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-type Props = {};
+type Book = {
+  title: string;
+  description: string;
+  image: string;
+  rating: number;
+  categoryId: number;
+  finishDate: Date;
+  startDate: Date;
+};
 
-const Book = (props: Props) => {
+const Book = () => {
   const navigate = useNavigate();
   const [book, setBook] = useState([]);
   const [error, setError] = useState("");
@@ -33,16 +41,20 @@ const Book = (props: Props) => {
         console.log(error);
       });
   };
-
-  getBooks();
-
   if (!book) {
     console.log("theres an error");
   }
 
+  useEffect(() => {
+    getBooks();
+  }, []);
+
   return (
     <div>
       <button onClick={handleLogout}>logout</button>
+      {book.map((book: Book) => {
+        return <div>{book.title}</div>;
+      })}
     </div>
   );
 };

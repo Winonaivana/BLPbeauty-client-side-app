@@ -1,10 +1,17 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const Login: React.FC = (props: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleRegister = () => {
+    navigate("/register");
+  };
 
   const handleChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -27,14 +34,19 @@ const Login: React.FC = (props: Props) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Login failed");
+        }
+      })
       .then((data) => {
-        // Save the JWT token in local storage
         localStorage.setItem("token", data.accessToken);
-        // Set the token in the state to trigger the guard
+        navigate("/book");
       })
       .catch((error) => {
-        console.error(error);
+        console.log(error);
       });
   };
   return (
@@ -46,7 +58,10 @@ const Login: React.FC = (props: Props) => {
           placeholder="password"
           type="password"
         />
+        <br />
         <button type="submit">log in</button>
+        <br />
+        <button onClick={handleRegister}>sign up</button>
       </form>
     </>
   );
