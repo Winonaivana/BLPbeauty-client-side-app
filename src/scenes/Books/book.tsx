@@ -49,9 +49,19 @@ const Book = () => {
     getBooks();
   }, []);
 
+  const handleAdd = () => {
+    navigate("/book/add");
+  };
+
   return (
     <div className="">
       <div className="absolute top-0 right-0 p-2">
+        <button
+          onClick={handleAdd}
+          className="border-2 border-black rounded-lg p-2 mr-4 "
+        >
+          add
+        </button>
         <button
           className="border-2 border-black rounded-lg p-2"
           onClick={handleLogout}
