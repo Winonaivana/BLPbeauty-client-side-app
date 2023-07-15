@@ -54,8 +54,8 @@ const Book = () => {
   };
 
   return (
-    <div className="">
-      <div className="absolute top-0 right-0 p-2">
+    <div>
+      <div className="absolute top-0 right-0 p-4">
         <button
           onClick={handleAdd}
           className="border-2 border-black rounded-lg p-2 mr-4 "
@@ -71,7 +71,7 @@ const Book = () => {
       </div>
 
       <div className="flex w-screen justify-center">
-        <div className=" mt-8 grid gap-8 pb-4 pt-4 grid-cols-4 ">
+        <div className=" mt-20 grid gap-8 pb-4 pt-4 grid-cols-4 ">
           {book.map((book: Book) => {
             return (
               <div>

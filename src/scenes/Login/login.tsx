@@ -50,20 +50,30 @@ const Login: React.FC = (props: Props) => {
       });
   };
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input onChange={handleChangeEmail} type="email" placeholder="email" />
-        <br />
-        <input
-          onChange={handleChangePassword}
-          placeholder="password"
-          type="password"
-        />
-        <br />
-        <button type="submit">log in</button>
-      </form>
-      <button onClick={handleRegister}>sign up</button>
-    </>
+    <div className="justify-center h-screen flex items-center">
+      <div className="flex flex-col">
+        <div className="mb-8 text-2xl">Welcome to back Bookie</div>
+
+        <form onSubmit={handleSubmit}>
+          <input
+            onChange={handleChangeEmail}
+            type="email"
+            placeholder="email"
+          />
+          <br />
+          <input
+            onChange={handleChangePassword}
+            placeholder="password"
+            type="password"
+          />
+          <br />
+          <button type="submit">Log in</button>
+        </form>
+        <div>
+          <button onClick={handleRegister}>Sign up</button>
+        </div>
+      </div>
+    </div>
   );
 };
 

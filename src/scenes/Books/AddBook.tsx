@@ -57,7 +57,7 @@ const AddBook = (props: Props) => {
     response();
   };
   return (
-    <div>
+    <div className="justify-center h-screen flex items-center">
       <form onSubmit={handleSubmit}>
         <input placeholder="title" onChange={handleChangeTitle} />
         <br />

@@ -101,7 +101,7 @@ const BookDetail = () => {
           <Link
             className="mr-4 border-2 border-black rounded-lg p-2 mt-4"
             key={book.id}
-            to={`/book/${book.id}`}
+            to={`/book/edit/${book.id}`}
           >
             edit
           </Link>

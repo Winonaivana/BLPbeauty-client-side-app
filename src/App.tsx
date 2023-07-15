@@ -4,6 +4,7 @@ import Login from "./scenes/Login/login";
 import Book from "./scenes/Books/book";
 import BookDetail from "./scenes/Books/BookDetail";
 import AddBook from "./scenes/Books/AddBook";
+import EditBook from "./scenes/Books/EditBook";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/book" element={<Book></Book>} />
         <Route path="/book/:id" element={<BookDetail></BookDetail>} />
         <Route path="/book/add" element={<AddBook></AddBook>} />
+        <Route path="/book/edit/:id" element={<EditBook></EditBook>} />
       </Routes>
     </BrowserRouter>
   );

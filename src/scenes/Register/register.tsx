@@ -45,20 +45,30 @@ const Register: React.FC = (props: Props) => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input onChange={handleChangeEmail} type="email" placeholder="email" />
-        <br />
-        <input
-          onChange={handleChangePassword}
-          type="password"
-          placeholder="password"
-        />
-        <br />
-        <button type="submit">register</button>
-      </form>
-      <button onClick={handleLogin}>log in</button>
-    </>
+    <div className="justify-center h-screen flex items-center">
+      <div className="flex flex-col">
+        <div className="mb-8 text-2xl">Welcome to Bookie</div>
+
+        <form onSubmit={handleSubmit}>
+          <input
+            onChange={handleChangeEmail}
+            type="email"
+            placeholder="email"
+          />
+          <br />
+          <input
+            onChange={handleChangePassword}
+            placeholder="password"
+            type="password"
+          />
+          <br />
+          <button type="submit">Register</button>
+        </form>
+        <div>
+          <button onClick={handleLogin}>Log in</button>
+        </div>
+      </div>
+    </div>
   );
 };
 
