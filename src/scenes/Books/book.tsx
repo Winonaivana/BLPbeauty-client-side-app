@@ -80,7 +80,8 @@ const Book = () => {
                     className="w-[200px] h-[300px] bg-slate-400"
                     src={book.image}
                   ></img>
-                  <div className="text-lg mt-4">{book.title}</div>
+                  <div className="text-lg mt-4">{book.title}</div>{" "}
+                  <p>{book.rating}/5</p>
                 </Link>
               </div>
             );

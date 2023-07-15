@@ -97,6 +97,7 @@ const BookDetail = () => {
         </div>
         <div>
           <p>{book.description}</p>
+          <p>{book.rating}</p>
           <Link
             className="mr-4 border-2 border-black rounded-lg p-2 mt-4"
             key={book.id}
