@@ -53,6 +53,7 @@ const Login: React.FC = (props: Props) => {
     <>
       <form onSubmit={handleSubmit}>
         <input onChange={handleChangeEmail} type="email" placeholder="email" />
+        <br />
         <input
           onChange={handleChangePassword}
           placeholder="password"
@@ -60,9 +61,8 @@ const Login: React.FC = (props: Props) => {
         />
         <br />
         <button type="submit">log in</button>
-        <br />
-        <button onClick={handleRegister}>sign up</button>
       </form>
+      <button onClick={handleRegister}>sign up</button>
     </>
   );
 };

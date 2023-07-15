@@ -1,10 +1,12 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const Register: React.FC = (props: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -34,21 +36,28 @@ const Register: React.FC = (props: Props) => {
         console.log(data);
       })
       .catch((error) => {
-        console.error(error);
+        console.log(error);
       });
+  };
+
+  const handleLogin = () => {
+    navigate("/");
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <input onChange={handleChangeEmail} type="email" placeholder="email" />
+        <br />
         <input
           onChange={handleChangePassword}
           type="password"
           placeholder="password"
         />
+        <br />
         <button type="submit">register</button>
       </form>
+      <button onClick={handleLogin}>log in</button>
     </>
   );
 };
