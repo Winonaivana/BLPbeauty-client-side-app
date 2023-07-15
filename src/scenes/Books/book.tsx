@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type Book = {
+  id: number;
   title: string;
   description: string;
   image: string;
@@ -14,7 +15,6 @@ type Book = {
 const Book = () => {
   const navigate = useNavigate();
   const [book, setBook] = useState([]);
-  const [error, setError] = useState("");
   const token = localStorage.getItem("token");
   if (!token) {
     navigate("/");
@@ -50,11 +50,33 @@ const Book = () => {
   }, []);
 
   return (
-    <div>
-      <button onClick={handleLogout}>logout</button>
-      {book.map((book: Book) => {
-        return <div>{book.title}</div>;
-      })}
+    <div className="">
+      <div className="absolute top-0 right-0 p-2">
+        <button
+          className="border-2 border-black rounded-lg p-2"
+          onClick={handleLogout}
+        >
+          logout
+        </button>
+      </div>
+
+      <div className="flex w-screen justify-center">
+        <div className=" mt-8 grid gap-8 pb-4 pt-4 grid-cols-4 ">
+          {book.map((book: Book) => {
+            return (
+              <div>
+                <Link key={book.id} to={`/book/${book.id}`}>
+                  <img
+                    className="w-[200px] h-[300px] bg-slate-400"
+                    src={book.image}
+                  ></img>
+                  <div className="text-lg mt-4">{book.title}</div>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
