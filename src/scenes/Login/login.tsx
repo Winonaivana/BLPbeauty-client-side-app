@@ -22,15 +22,20 @@ const Login: React.FC = (props: Props) => {
       password: password,
     };
 
-    const response = (input: typeof formData) => {
-      fetch("https://bookie-api.onrender.com/auth/signin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(input),
+    fetch("https://bookie-api.onrender.com/auth/signin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Save the JWT token in local storage
+        localStorage.setItem("token", data.accessToken);
+        // Set the token in the state to trigger the guard
       })
-        .then((response) => response.json)
-        .then((data) => console.log(data));
-    };
+      .catch((error) => {
+        console.error(error);
+      });
   };
   return (
     <>
