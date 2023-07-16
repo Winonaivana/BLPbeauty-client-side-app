@@ -56,7 +56,7 @@ const BookDetail = () => {
       .catch((error) => {
         console.error(error);
       });
-    window.location.reload();
+    navigate("/book");
   };
 
   const handleDelete = async () => {
