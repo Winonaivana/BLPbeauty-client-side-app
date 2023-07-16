@@ -68,7 +68,7 @@ const Login: React.FC = () => {
           <button type="submit">Log in</button>
         </form>
         <div>
-          don't hava an account?
+          don't have an account?
           <button onClick={handleRegister}>Sign up</button>
         </div>
       </div>
