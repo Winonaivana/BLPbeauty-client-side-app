@@ -75,20 +75,28 @@ const AddBook = () => {
     e.preventDefault();
     response();
   };
+  const handleBack = () => {
+    navigate(`/book/${id}`);
+  };
   return (
-    <div className="justify-center h-screen flex items-center">
-      <form onSubmit={handleSubmit}>
-        <input placeholder={title} onChange={handleChangeTitle} />
-        <br />
-        <input placeholder={description} onChange={handleChangeDescription} />
-        <br />
-        <input placeholder={rating} onChange={handleChangeRating} />
-        <br />
-        <input placeholder={image} onChange={handleChangeImage} />
-        <br />
-        <button type="submit">Edit</button>
-      </form>
-    </div>
+    <>
+      <div className="absolute top-0 right-0 p-4">
+        <button onClick={handleBack}>back</button>
+      </div>
+      <div className="justify-center h-screen flex items-center">
+        <form onSubmit={handleSubmit}>
+          <input placeholder={title} onChange={handleChangeTitle} />
+          <br />
+          <input placeholder={description} onChange={handleChangeDescription} />
+          <br />
+          <input placeholder={rating} onChange={handleChangeRating} />
+          <br />
+          <input placeholder={image} onChange={handleChangeImage} />
+          <br />
+          <button type="submit">Edit</button>
+        </form>
+      </div>
+    </>
   );
 };
 

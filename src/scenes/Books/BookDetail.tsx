@@ -11,6 +11,7 @@ const BookDetail = () => {
     description: "",
     finishDate: null,
     startDate: null,
+    categoryId: null,
   });
   const [date, setDate] = useState("");
   const navigate = useNavigate();
@@ -77,43 +78,52 @@ const BookDetail = () => {
     navigate("/book");
   };
 
+  const handleBack = () => {
+    navigate("/book");
+  };
   return (
-    <div className="justify-center h-screen flex items-center">
-      <div className="flex gap-4">
-        <div>
-          <img className="w-[200px] h-[300px]" src={book.image}></img>
+    <>
+      <div className="absolute top-0 right-0 p-4">
+        <button onClick={handleBack}>back</button>
+      </div>
+      <div className="justify-center h-screen flex items-center">
+        <div className="flex gap-4">
+          <div>
+            <img className="w-[200px] h-[300px]" src={book.image}></img>
 
-          <div className="mt-4">{book.title}</div>
-          {date ? (
-            "Finished reading"
-          ) : (
-            <button
-              onClick={handleFinish}
-              className="border-2 border-black rounded-lg p-2 mt-4"
+            <div className="mt-4">{book.title}</div>
+            {date ? (
+              "Finished reading"
+            ) : (
+              <button
+                onClick={handleFinish}
+                className="border-2 border-black rounded-lg p-2 mt-4"
+              >
+                finish
+              </button>
+            )}
+          </div>
+          <div>
+            <p>{book.description}</p>
+            <p>category: {book.categoryId}</p>
+            <p>{book.rating}/5</p>
+            <Link
+              className="mr-4 border-2 border-black rounded-lg p-2 mt-4"
+              key={book.id}
+              to={`/book/edit/${book.id}`}
             >
-              finish
+              edit
+            </Link>
+            <button
+              className="mr-4 border-2 border-black rounded-lg p-2 mt-4"
+              onClick={handleDelete}
+            >
+              delete
             </button>
-          )}
-        </div>
-        <div>
-          <p>{book.description}</p>
-          <p>{book.rating}</p>
-          <Link
-            className="mr-4 border-2 border-black rounded-lg p-2 mt-4"
-            key={book.id}
-            to={`/book/edit/${book.id}`}
-          >
-            edit
-          </Link>
-          <button
-            className="mr-4 border-2 border-black rounded-lg p-2 mt-4"
-            onClick={handleDelete}
-          >
-            delete
-          </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
