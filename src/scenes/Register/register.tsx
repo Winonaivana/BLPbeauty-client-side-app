@@ -63,6 +63,7 @@ const Register: React.FC = () => {
           <button type="submit">Register</button>
         </form>
         <div>
+          already have an account?
           <button onClick={handleLogin}>Log in</button>
         </div>
       </div>

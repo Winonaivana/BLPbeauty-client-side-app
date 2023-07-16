@@ -50,7 +50,7 @@ const Login: React.FC = () => {
   return (
     <div className="justify-center h-screen flex items-center">
       <div className="flex flex-col">
-        <div className="mb-8 text-2xl">Welcome to back Bookie</div>
+        <div className="mb-8 text-2xl">Welcome back to Bookie</div>
 
         <form onSubmit={handleSubmit}>
           <input
@@ -68,6 +68,7 @@ const Login: React.FC = () => {
           <button type="submit">Log in</button>
         </form>
         <div>
+          don't hava an account?
           <button onClick={handleRegister}>Sign up</button>
         </div>
       </div>
