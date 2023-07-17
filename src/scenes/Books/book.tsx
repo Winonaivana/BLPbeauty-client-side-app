@@ -15,6 +15,7 @@ type Book = {
 const Book = () => {
   const navigate = useNavigate();
   const [book, setBook] = useState([]);
+  const [search, setSearch] = useState("");
   const token = localStorage.getItem("token");
   if (!token) {
     navigate("/");
@@ -26,7 +27,7 @@ const Book = () => {
   };
 
   const getBooks = async () => {
-    await fetch("https://bookie-api.onrender.com/book", {
+    await fetch(`https://bookie-api.onrender.com/book?query=${search}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +48,7 @@ const Book = () => {
 
   useEffect(() => {
     getBooks();
-  }, []);
+  }, [search]);
 
   const handleAdd = () => {
     navigate("/book/add");
@@ -69,6 +70,15 @@ const Book = () => {
           logout
         </button>
       </div>
+      <form className="p-4">
+        <input
+          placeholder="search"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+      </form>
 
       <div className="flex w-screen justify-center">
         <div className=" mt-20 grid gap-8 pb-4 pt-4 grid-cols-4 ">
