@@ -1,5 +1,8 @@
 Link to app : (https://bl-pbeauty-client-side-app.vercel.app/)
 
+Duration: 5 days
+*due to free deployment, app will be slow*
+
 What I could've done with more time:
 
 - better UI and UX designs
